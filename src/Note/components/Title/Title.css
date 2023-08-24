@@ -1,0 +1,21 @@
+.title-container {
+  display: inline-flex;
+}
+
+.title-container > p {
+  color: #232323;
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+.edit-title {
+  visibility: hidden;
+  padding-top: 0.75rem;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.title-container:hover .edit-title {
+  visibility: visible;
+  cursor: pointer;
+}

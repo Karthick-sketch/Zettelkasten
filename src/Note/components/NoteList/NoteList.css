@@ -1,0 +1,13 @@
+.notelist-table {
+  width: 100%;
+}
+
+thead {
+  text-align: left;
+  background-color: #ababab;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+}
