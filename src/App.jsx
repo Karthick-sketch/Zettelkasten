@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
-import Note from "./Note/Note";
+import { Route, Routes } from "react-router-dom";
+import Notes from "./Notes/Notes";
+import Note from "./Notes/components/Note/Note";
 
 const date = new Date();
 
@@ -22,10 +24,12 @@ const notes = [
 ];
 
 function App() {
-  // const [value, setValue] = useState(note.body);
   return (
     <>
-      <Note notes={notes} />
+      <Routes>
+        <Route path="/" element={<Notes notes={notes} />} />
+        <Route path="/note/:id" element={<Note note={notes[0]} />} />
+      </Routes>
     </>
   );
 }

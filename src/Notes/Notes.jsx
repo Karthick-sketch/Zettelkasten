@@ -1,11 +1,12 @@
 import React from "react";
-import "./NoteList.css";
+import { Link } from "react-router-dom";
+import "./Notes.css";
 
 export default function NoteList({ notes }) {
   const noteLists = notes.map((note) => (
     <tr key={note.referenceId} className="note-item">
       <td>
-        <Link>{note.title}</Link>
+        <Link to={`/note/${note.referenceId}`}>{note.title}</Link>
       </td>
       <td>{note.createdAt.toString()}</td>
       <td>{note.updatedAt.toString()}</td>
