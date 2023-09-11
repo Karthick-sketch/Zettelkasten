@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "./Editor.css";
 
-export default function Editor({ body }) {
-  const [value, setValue] = useState(body);
+export default function Editor({ content }) {
+  const [value, setValue] = useState(content);
 
   const modules = {
     toolbar: [

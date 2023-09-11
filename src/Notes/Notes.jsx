@@ -1,15 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./Notes.css";
 
-export default function NoteList({ notes }) {
-  const noteLists = notes.map((note) => (
-    <tr key={note.referenceId} className="note-item">
+const api = axios.create({ baseURL: "http://localhost:8080/" });
+
+export default function NoteList() {
+  const [notelists, setNotelists] = useState([]);
+
+  useEffect(() => {
+    fetchNoteLists();
+  }, []);
+
+  async function fetchNoteLists() {
+    try {
+      const response = await api.get("notelist").then((res) => res);
+
+      if (response.status === 200) {
+        console.log(response.data);
+        setNotelists(response.data);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const notelist = notelists.map((note) => (
+    <tr key={note.id} className="note-item">
       <td>
-        <Link to={`/note/${note.referenceId}`}>{note.title}</Link>
+        <Link to={`/note/${note.reference_id}`}>{note.title}</Link>
       </td>
-      <td>{note.createdAt.toString()}</td>
-      <td>{note.updatedAt.toString()}</td>
+      <td>{note.created_at.toString()}</td>
+      <td>{note.updated_at.toString()}</td>
       <td>:</td>
     </tr>
   ));
@@ -25,7 +47,7 @@ export default function NoteList({ notes }) {
             <th></th>
           </tr>
         </thead>
-        <tbody>{noteLists}</tbody>
+        <tbody>{notelist}</tbody>
       </table>
     </>
   );
