@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Notes.css";
+import NotesHeader from "./components/NotesHeader/NotesHeader";
 
 const api = axios.create({ baseURL: "http://localhost:8080/" });
 
@@ -26,29 +27,23 @@ export default function NoteList() {
   }
 
   const notelist = notelists.map((note) => (
-    <tr key={note.id} className="note-item">
-      <td>
-        <Link to={`/note/${note.reference_id}`}>{note.title}</Link>
-      </td>
-      <td>{note.created_at.toString()}</td>
-      <td>{note.updated_at.toString()}</td>
-      <td>:</td>
-    </tr>
+    <li key={note.id} className="note-item">
+      <span>
+        <Link to={`/note/${note.reference_id}`} className="note-title">
+          {note.title}
+        </Link>
+      </span>
+      <span className="note-date">{note.updated_at}</span>
+      <button>
+        <img src="/ThreeDots.svg" />
+      </button>
+    </li>
   ));
 
   return (
     <>
-      <table className="notelist-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Created At</th>
-            <th>Updated At</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>{notelist}</tbody>
-      </table>
+      <NotesHeader />
+      <ul className="notes">{notelist}</ul>
     </>
   );
 }

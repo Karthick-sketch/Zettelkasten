@@ -1,7 +1,7 @@
 import React from "react";
-import "./Title.css";
+import "./NoteTitle.css";
 
-export default function Title({ title }) {
+export default function NoteTitle({ title }) {
   return (
     <div className="title-container">
       <p>{title}</p>

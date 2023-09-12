@@ -1,13 +1,38 @@
-.notelist-table {
-  width: 100%;
+.notes {
+  padding: 0;
+  list-style-type: none;
 }
 
-thead {
-  text-align: left;
-  background-color: #ababab;
+.note-item {
+  padding: 1.5rem;
+  margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid #d3d3d3;
 }
 
-tbody {
-  display: table-row-group;
-  vertical-align: middle;
+.note-title {
+  color: black;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.note-title:hover {
+  color: #2ca5bb;
+}
+
+.note-date {
+  color: #535353;
+  margin-left: 0.5rem;
+  font-size: smaller;
+}
+
+.note-item-container > div > p {
+  margin: 0;
+}
+
+.note-item > button {
+  float: right;
+  cursor: pointer;
+  border-color: transparent;
+  background-color: transparent;
 }

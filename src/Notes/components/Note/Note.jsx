@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Title from "../Title/Title";
-import Editor from "../Editor/Editor";
 import Content from "../Content";
+import Editor from "../Editor/Editor";
+import NoteTitle from "../NoteTitle/NoteTitle";
 
 const api = axios.create({ baseURL: "http://localhost:8080/" });
 
@@ -38,7 +38,7 @@ export default function Note() {
 
   return (
     <>
-      <Title title={title} />
+      <NoteTitle title={title} />
       <button onClick={toggleEdit}>Edit</button>
       {editable ? <Editor content={content} /> : <Content content={content} />}
     </>

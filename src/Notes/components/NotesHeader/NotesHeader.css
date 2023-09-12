@@ -1,0 +1,22 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+
+.username {
+  margin: 0;
+  padding-top: 5px;
+  font-size: 1.5rem;
+}
+
+#search-field {
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #737373;
+}
+
+#search-btn {
+  padding: 10px;
+}
