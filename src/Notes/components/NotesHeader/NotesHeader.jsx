@@ -8,7 +8,10 @@ export default function NotesHeader() {
         <input type="text" id="search-field" placeholder="Search note" />
         <button id="search-btn">Search</button>
       </div>
-      <button>+ Add Note</button>
+      <button className="add-note-btn">
+        <img src="/plus.svg" />
+        <span>Add Note</span>
+      </button>
     </header>
   );
 }
