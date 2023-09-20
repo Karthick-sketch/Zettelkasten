@@ -39,7 +39,7 @@ export default function Note() {
   return (
     <>
       <NoteTitle title={title} />
-      <button onClick={toggleEdit}>Edit</button>
+      <button onClick={toggleEdit}>{editable ? "Save" : "Edit"}</button>
       {editable ? <Editor content={content} /> : <Content content={content} />}
     </>
   );

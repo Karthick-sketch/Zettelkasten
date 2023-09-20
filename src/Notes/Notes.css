@@ -36,3 +36,25 @@
   border-color: transparent;
   background-color: transparent;
 }
+
+.option-container {
+  display: none;
+  position: absolute;
+  right: 4rem;
+  transform: translate(0, -50px);
+  padding: 6px 10px;
+  border: 1px solid #cecece;
+  background-color: white;
+}
+
+.option-container > button {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  background-color: white;
+}
+
+.option-container > button:hover {
+  background-color: #f1f1f6;
+}

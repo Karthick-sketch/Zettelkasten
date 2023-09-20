@@ -8,6 +8,7 @@ const api = axios.create({ baseURL: "http://localhost:8080/" });
 
 export default function NoteList() {
   const [notelists, setNotelists] = useState([]);
+  const [option, setOption] = useState(null);
 
   useEffect(() => {
     fetchNoteLists();
@@ -26,17 +27,31 @@ export default function NoteList() {
     }
   }
 
+  function handleClick(id) {
+    if (option !== null) {
+      option.style.display = "none";
+    }
+
+    setOption(document.getElementById(`option-container-${id}`));
+    option.style.display = option.style.display === "none" ? "block" : "none";
+  }
+
   const notelist = notelists.map((note) => (
     <li key={note.id} className="note-item">
       <span>
-        <Link to={`/note/${note.reference_id}`} className="note-title">
-          {note.title}
+        <Link to={`/note/${note.note_id}`} className="note-title">
+          {note.name}
         </Link>
       </span>
-      <span className="note-date">{note.updated_at}</span>
-      <button>
+      <span className="note-date">{note.created_at.slice(0, 10)}</span>
+      <button onClick={() => handleClick(note.id)}>
         <img src="/ThreeDots.svg" />
       </button>
+      <div id={`option-container-${note.id}`} className="option-container">
+        <button>Rename</button>
+        <br />
+        <button>Delete</button>
+      </div>
     </li>
   ));
 
